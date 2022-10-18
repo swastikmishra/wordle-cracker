@@ -11,7 +11,8 @@ class Predictions {
 
   predict = (
     fixedArray: Array<string>,
-    guessArray: Array<string>
+    guessArray: Array<string>,
+    ignoreArray: Array<string>
   ): Array<string> => {
     let predictionWords: Array<string> = this.words;
     fixedArray = fixedArray.map((letter: string) => {
@@ -19,6 +20,16 @@ class Predictions {
     });
     guessArray = guessArray.map((letter: string) => {
       return letter.toLowerCase();
+    });
+    ignoreArray = ignoreArray.map((letter: string) => {
+      return letter.toLowerCase();
+    });
+    // remove fixed and guess array elements from ignore array
+    ignoreArray = ignoreArray.filter((letter: string) => {
+      return fixedArray.indexOf(letter) == -1 ? true : false;
+    });
+    ignoreArray = ignoreArray.filter((letter: string) => {
+      return guessArray.indexOf(letter) == -1 ? true : false;
     });
 
     for (let i = 0; i < fixedArray.length; i++) {
@@ -34,6 +45,14 @@ class Predictions {
       if (guessArray[i] != "") {
         predictionWords = predictionWords.filter((word: string) => {
           return word.indexOf(guessArray[i]) == -1 ? false : true;
+        });
+      }
+    }
+
+    for (let i = 0; i < ignoreArray.length; i++) {
+      if (ignoreArray[i] != "") {
+        predictionWords = predictionWords.filter((word: string) => {
+          return word.indexOf(ignoreArray[i]) == -1 ? true : false;
         });
       }
     }
