@@ -2,11 +2,11 @@
   import { onMount } from "svelte";
   onMount(() => {
     let storageTheme = localStorage.getItem("theme")
-    if(storageTheme == "dark")
+    if(storageTheme == "light")
       toggleTheme()
   })
   const bodyElement = document.body;
-  let theme: string = "light";
+  let theme: string = "dark";
   const toggleTheme = () => {
     if (bodyElement.className.indexOf("dark") == -1) {
       theme = "dark";
