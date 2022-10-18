@@ -41,6 +41,11 @@
     <script type="text/javascript">
       if(window.location.host.indexOf("arhsimkitsaws.me") != -1){
         document.body.style.transform = "rotateY(180deg)"
+        let link = window.location.href.replace("arhsimkitsaws.me", "swastikmishra.me")
+        let ele = document.createElement("p")
+        ele.style = "text-align: center; text-transform: uppercase; font-weight: 900; transform: rotateY(180deg); font-size: 1rem; position: fixed; bottom: 0; left: 0; width: 100vw; z-index: 9; background: rgba(0,0,0,0.85); padding: 10px; color: white;"
+        ele.innerHTML = "you are looking at a mirrored version of the page.<br/>Click <a href='"+link+"'>this link</a> to see the actual page or enjoy this mirrored dimensions."
+        document.body.appendChild(ele)
       }
     </script>
   </body>
