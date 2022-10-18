@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+// Update Bulma's global variables
+$family-sans-serif: "Source Sans Pro", sans-serif;
+
+// @import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma/sass/utilities/_all";
+@import "../node_modules/bulma/sass/base/_all";
+@import "../node_modules/bulma/sass/elements/_all";
+@import "../node_modules/bulma/sass/form/_all";
+@import "../node_modules/bulma/sass/components/_all";
+@import "../node_modules/bulma/sass/grid/_all";
+@import "../node_modules/bulma/sass/helpers/_all";
+@import "../node_modules/bulma/sass/layout/_all";
+
+body {
+  $green: #6aaa64;
+  $yellow: #c9b458;
+  $blue: #2671dc;
+  $inactiveColor: lighten($blue, 20);
+
+  background: #eeeeee59;
+
+  .green {
+    color: $green !important;
+  }
+  .yellow {
+    color: $yellow !important;
+  }
+  .blue {
+    color: $blue !important;
+  }
+
+  min-height: 100vh;
+
+  nav.navbar {
+    a.navbar-item {
+      font-size: 30px;
+    }
+
+    div.navbar-brand {
+      font-weight: 900;
+
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  footer.footer {
+    .menu a {
+      font-size: 30px;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  div[data-component="MainApp"] {
+    min-height: calc(100vh - 145px - 65px);
+
+    input.input {
+      max-width: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 20px;
+
+      &.green {
+        color: $green;
+      }
+      &.yellow {
+        color: $yellow;
+      }
+    }
+
+    .Predictions {
+      p {
+        background: rgb(15 0 0 / 4%);
+        display: inline-block;
+        padding: 5px 15px;
+        margin: 10px 10px;
+        border-radius: 4px;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+
+        span {
+          color: $inactiveColor;
+
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.dark {
+  $darkendYellow: #b59f3b;
+  $darkendGreen: #538d4e;
+  $blue: #528ee3;
+  $inactiveColor: $blue;
+  $red: #f14668;
+
+  background: #111;
+
+  nav.navbar {
+    background: #111;
+
+    .navbar-brand .navbar-item {
+      color: white;
+    }
+  }
+
+  .green {
+    color: $green !important;
+  }
+  .yellow {
+    color: $yellow !important;
+  }
+
+  .blue {
+    color: $blue !important;
+  }
+
+  .red {
+    color: $red !important;
+  }
+
+  div[data-component="MainApp"] {
+    div.box {
+      background: #222;
+    }
+
+    .Predictions p {
+      background-color: #444;
+      span {
+        color: $inactiveColor;
+      }
+    }
+
+    input.input{
+      outline: none;
+      background: #333;
+      border: none;
+      transition: all 0.2s ease;
+
+      &.red.selected{
+        border-bottom: 4px solid;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+  }
+
+  footer.footer {
+    background-color: #111;
+    * {
+      color: white;
+    }
+  }
+}

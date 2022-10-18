@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports: 
+      - 9001:9001
+    volumes:
+      - ./code:/app
+    tty: true 
