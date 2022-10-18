@@ -66,13 +66,10 @@ body {
       text-align: center;
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 16px;
       transition: all 0.2s ease;
 
       &.red {
-        font-size: 15px;
-        width: 40px;
-
         &.selected {
           border-bottom: 4px solid;
           border-bottom-left-radius: 0px;
