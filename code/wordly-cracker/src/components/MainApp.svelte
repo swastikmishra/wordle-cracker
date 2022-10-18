@@ -91,14 +91,28 @@
       return `<span class="yellow">${letter}</span>`;
     else return `<span>${letter}</span>`;
   };
+  const toggleFieldsDisplay = (e) => {
+    let target = e.target
+    if(target.className.indexOf("hydrated") != -1) //this is ion-icon click then
+      target = target.parentElement
+    let parentEle = target.parentElement
+    if(parentEle.className.indexOf("expanded") == -1){
+      parentEle.classList.add("expanded")
+      target.querySelector("ion-icon").setAttribute("name", "chevron-up-outline")
+    }else{
+      parentEle.classList.remove("expanded")
+      target.querySelector("ion-icon").setAttribute("name", "chevron-down-outline")
+    }
+  }
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div data-component="MainApp">
   <div class="section pt-3">
     <div class="conatiner">
       <div class="columns is-centered is-multiline">
         <div class="column is-6">
-          <div class="box has-text-centered">
+          <div class="box has-text-centered expanded">
             <h3 class="title is-5 green">Put the green ones here</h3>
             <div class="field is-grouped is-grouped-centered">
               {#each greenInput as input, index (index)}
@@ -117,8 +131,11 @@
         </div>
 
         <div class="column is-6">
-          <div class="box has-text-centered">
-            <h3 class="title is-5 yellow">Put the yellow ones here</h3>
+          <div class="box has-text-centered expanded">
+            <h3 class="title is-5 yellow" on:click={toggleFieldsDisplay}>
+              Put the yellow ones here
+              <ion-icon name="chevron-up-outline"></ion-icon>
+            </h3>
             <div class="field is-grouped is-grouped-centered">
               {#each yellowInput as input, index (index)}
                 <p class="control">
@@ -138,12 +155,15 @@
 
         <div class="column is-12">
           <div class="box has-text-centered">
-            <h3 class="title is-5 red">Select letters to ignore</h3>
+            <h3 class="title is-5 red" on:click={toggleFieldsDisplay}>
+              Select letters to ignore
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </h3>
             <div
               class="field is-grouped is-grouped-centered is-grouped-multiline"
             >
               {#each letters as letter, index (index)}
-                {#if greenInput.indexOf(letter) == -1}
+                {#if greenInput.indexOf(letter) == -1 && yellowInput.indexOf(letter) == -1 }
                   <p class="control">
                     <input
                       readonly={true}

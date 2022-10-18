@@ -61,6 +61,20 @@ body {
   div[data-component="MainApp"] {
     min-height: calc(100vh - 145px - 65px);
 
+    div.box{
+
+      transition: all 0.3s ease;
+
+      &:not(.expanded) {
+        div.field {
+          display: none;
+        }
+        h3.title{
+          margin-bottom: 0rem;
+        }
+      }
+    }
+
     input.input {
       max-width: 40px;
       text-align: center;
@@ -82,6 +96,12 @@ body {
       }
       &.yellow {
         color: $yellow;
+      }
+    }
+
+    h3 {
+      ion-icon {
+        float: right;
       }
     }
 
