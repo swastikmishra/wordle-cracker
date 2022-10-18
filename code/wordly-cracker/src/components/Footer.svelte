@@ -35,7 +35,7 @@
           <ion-icon name="sunny" />
         {/if}
       </a>
-      <a href="https://github.com/swastikmishra">
+      <a href="https://github.com/swastikmishra/wordle-cracker">
         <ion-icon name="logo-github" />
       </a>
       <a class="is-hidden">
